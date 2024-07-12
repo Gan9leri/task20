@@ -10,7 +10,6 @@ import org.aeonbits.owner.Config;
 
 public interface BrowserStackConfig extends Config {
 
-
     String browserstackApp();
     String browserstackDevice();
     String browserstackOsVersion();
@@ -18,4 +17,5 @@ public interface BrowserStackConfig extends Config {
     String browserstackBuild();
     String browserstackName();
     String browserstackUrl();
+
 }
