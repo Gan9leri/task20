@@ -10,11 +10,9 @@
   
 
 Для запуска тестов на iPhone использовать команду ниже:
-```shell
-gradle clean test -Denv=GooglePixel6
-```
 
 Для запуска тестов на Android использовать команду ниже:
 ```shell
-gradlew clean test -Denv=samsungGalaxyS22Ultra
+gradle clean test -Denv=GooglePixel6
+
 ```
