@@ -1,19 +1,18 @@
 package config;
 
-import config.BrowserstackConfig;
 import org.aeonbits.owner.ConfigFactory;
 
 public enum ConfigReader {
 
     Instance;
 
-    private static final BrowserstackConfig config =
+    private static final BrowserStackConfig config =
             ConfigFactory.create(
-                    BrowserstackConfig.class,
+                    BrowserStackConfig.class,
                     System.getProperties()
             );
 
-    public BrowserstackConfig read() {
+    public BrowserStackConfig read() {
         return config;
     }
 }

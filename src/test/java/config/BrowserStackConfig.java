@@ -2,16 +2,15 @@ package config;
 
 import org.aeonbits.owner.Config;
 
-@Config.LoadPolicy(Config.LoadType.MERGE)
+@Config.LoadPolicy(Config.LoadType.FIRST)
 @Config.Sources({
         "classpath:${env}.properties",
         "classpath:GooglePixel6.properties"
 })
 
-public interface BrowserstackConfig extends Config {
+public interface BrowserStackConfig extends Config {
 
-    String browserstackUser();
-    String browserstackKey();
+
     String browserstackApp();
     String browserstackDevice();
     String browserstackOsVersion();
