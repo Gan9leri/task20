@@ -2,6 +2,7 @@ package tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import config.BrowserstackConfig;
 import config.ConfigReader;
@@ -23,8 +24,7 @@ public class TestBase {
     static void beforeAll() {
 
         BrowserstackDriver driver = new BrowserstackDriver(config);
-        driver.getDriver();
-
+        WebDriverRunner.setWebDriver(driver.getDriver());
         Configuration.browser = BrowserstackDriver.class.getName();
         Configuration.browserSize = null;
     }
@@ -33,14 +33,13 @@ public class TestBase {
     void beforeEach() {
         open();
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+
     }
 
     @AfterEach
     void addAttacments(){
         String sessionId = Selenide.sessionId().toString();
         System.out.println(sessionId);
-
-//        Attach.screenshotAs("Last screenshot"); // todo fix
         Attach.pageSource();
         closeWebDriver();
         Attach.addVideo(sessionId);
